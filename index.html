@@ -226,6 +226,29 @@
   }
   .maps-btn:active { background: #C8E6C9; }
   body.fs-large .maps-btn { font-size: 15px; padding: 9px 16px; }
+
+  /* Day route button */
+  .route-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin: 4px 16px 12px;
+    padding: 13px 18px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #2D4A6B 100%);
+    color: white; font-size: 14px; font-weight: 700;
+    text-decoration: none; cursor: pointer;
+    box-shadow: 0 4px 12px rgba(45,74,107,0.35);
+    transition: transform 0.15s, box-shadow 0.15s;
+    letter-spacing: 0.2px;
+  }
+  .route-btn:active { transform: scale(0.97); box-shadow: 0 2px 6px rgba(45,74,107,0.25); }
+  .route-btn.amsterdam {
+    background: linear-gradient(135deg, #1a2e1a 0%, #2D6B4A 100%);
+    box-shadow: 0 4px 12px rgba(45,107,74,0.35);
+  }
+  .route-btn .route-icon { font-size: 18px; }
+  .route-btn .route-label { flex: 1; text-align: left; }
+  .route-btn .route-arrow { font-size: 16px; opacity: 0.7; }
+  body.fs-large .route-btn { font-size: 16px; padding: 15px 18px; }
   .day-theme {
     padding: 0 16px 12px;
     font-size: 13px; color: var(--muted); font-style: italic;
@@ -520,8 +543,8 @@
     <div class="check-item warn"><div class="check-icon">⚠️</div><div><div class="check-text">Outlet 包車確認</div><div class="check-sub">6/23 河谷村｜若未確認改搭 Uber</div></div></div>
 
     <div class="check-label">📞 緊急聯絡</div>
-    <div class="emg-item"><div class="emg-icon">🇫🇷</div><div><div class="emg-label">台北駐法國代表處</div><div class="emg-value">+33 1 44 39 88 20</div></div></div>
-    <div class="emg-item"><div class="emg-icon">🇳🇱</div><div><div class="emg-label">台北駐荷蘭代表處</div><div class="emg-value">+31 70 346 9438</div></div></div>
+    <div class="emg-item"><div class="emg-icon">🇫🇷</div><div><div class="emg-label">台北駐法國代表處</div><div class="emg-value">+33 1 44 39 88 20</div><div class="emg-value" style="margin-top:3px;">78 Rue de l'Université, 75007 Paris</div></div></div>
+    <div class="emg-item"><div class="emg-icon">🇳🇱</div><div><div class="emg-label">台北駐荷蘭代表處</div><div class="emg-value">+31 70 346 9438</div><div class="emg-value" style="margin-top:3px;">Statenlaan 4, 2582 GW Den Haag</div></div></div>
     <div class="emg-item"><div class="emg-icon">🆘</div><div><div class="emg-label">歐洲緊急救援</div><div class="emg-value">歐盟通用緊急電話：112</div></div></div>
   </div>
 </div>
@@ -597,6 +620,7 @@ const DAYS = [
   {
     date: '6/19', day: '五', city: 'paris',
     theme: '抵達巴黎 · 美食與藝術之夜',
+    route: 'https://www.google.com/maps/dir/Le+39V,+39+Av.+George+V,+75008+Paris,+France/6+Pl.+de+la+Madeleine,+75008+Paris,+France/Louvre+Museum,+75001+Paris,+France/@48.8655199,2.308795,15z/data=!3m2!4b1!5s0x47f112d46c2f6eef:0xfb8a933f53aec2c6!4m20!4m19!1m5!1m1!1s0x47e66fc27ea007fb:0xe60246c64a240ab9!2m2!1d2.3005884!2d48.8698194!1m5!1m1!1s0x47e66e32e7527259:0x8f0ff72992c6e04d!2m2!1d2.3245213!2d48.8689071!1m5!1m1!1s0x47e671d877937b0f:0xb975fcfa192f84d4!2m2!1d2.337644!2d48.8606111!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '08:05', name: '✈️ 抵達 CDG 機場', meta: '🚗 Klook 專車接機', status: 'confirmed', maps: 'https://www.google.com/maps/search/?api=1&query=Charles+de+Gaulle+Airport+Paris' },
       { time: '10:00', name: '🏨 飯店寄放行李、梳洗', meta: '🚶 步行', maps: 'https://maps.app.goo.gl/AQmHu7nW3223brqN8' },
@@ -607,6 +631,7 @@ const DAYS = [
   {
     date: '6/20', day: '六', city: 'paris',
     theme: '蒙馬特風情 · 河畔晚風',
+    route: 'https://www.google.com/maps/dir/6+Pl.+de+la+Madeleine,+75008+Paris,+France/Basilique+du+Sacré-Cœur+de+Montmartre,+35+Rue+du+Chevalier+de+la+Barre,+75018+Paris,+France/Marché+aux+puces+de+Saint-Ouen,+124+Rue+des+Rosiers,+93400+Saint-Ouen-sur-Seine,+France/Vedettes+du+Pont+Neuf,+1+Square+du+Vert+Galant,+75001+Paris,+France/@48.8911119,2.3318075,14.38z/data=!3m1!5s0x47e66e5ccbbf7941:0xe822cfb990602edb!4m26!4m25!1m5!1m1!1s0x47e66e32e7527259:0x8f0ff72992c6e04d!2m2!1d2.3245213!2d48.8689071!1m5!1m1!1s0x47e66e4334868de3:0xcfc3870abe2b8519!2m2!1d2.3431043!2d48.8867046!1m5!1m1!1s0x47e66ef13ed3b3e3:0x4a8456a277438a37!2m2!1d2.341197!2d48.902703!1m5!1m1!1s0x47e66e208ddb058b:0x6afa84b9880c5312!2m2!1d2.3409317!2d48.8574484!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '10:00', name: '⛪ 聖心堂 & 蒙馬特畫家村', meta: '🚕 Bolt（約 20 分鐘）', note: '俯瞰巴黎全景，最佳拍照時段', maps: 'https://www.google.com/maps/search/?api=1&query=Sacré-Cœur+Montmartre+Paris' },
       { time: '13:00', name: '🛍 聖圖安跳蚤市場 St-Ouen', meta: '🚕 Bolt（約 15 分鐘）', note: '爸爸挖寶重地，建議預留 3–4 小時', maps: 'https://www.google.com/maps/search/?api=1&query=Marché+aux+Puces+Saint-Ouen+Paris' },
@@ -616,20 +641,22 @@ const DAYS = [
   {
     date: '6/21', day: '日', city: 'paris',
     theme: '靈性彌撒 · 精品大道',
+    route: 'https://www.google.com/maps/dir/6+Pl.+de+la+Madeleine,+75008+Paris,+France/聖敘爾比斯教堂+75006,+France,+Paris,+Rue+Palatine/Chapel+of+Our+Lady+of+the+Miraculous+Medal,+140+Rue+du+Bac,+75007+Paris,+France/L\'Atelier+de+Joël+Robuchon+Étoile,+Publicis+Drugstore,+133+Av.+des+Champs-Élysées,+75008+Paris,+France/@48.8615734,2.2954488,14z/data=!3m2!4b1!5s0x47e66febdb92da09:0x37efa3faf42d6ce6!4m26!4m25!1m5!1m1!1s0x47e66e32e7527259:0x8f0ff72992c6e04d!2m2!1d2.3245213!2d48.8689071!1m5!1m1!1s0x47e671da17cbdca5:0xdb7a5a47381857fe!2m2!1d2.3350051!2d48.8509814!1m5!1m1!1s0x47e671d370726403:0x2eb34f9fcf051fd9!2m2!1d2.323783!2d48.8509522!1m5!1m1!1s0x47e66febdc5726c1:0x53a63310e60b587b!2m2!1d2.2971327!2d48.8727704!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '10:30', name: '⛪ 聖敘爾比斯主日彌撒', meta: '🚇 地鐵 + 🚶 步行', note: '可欣賞著名大管風琴演奏', maps: 'https://www.google.com/maps/search/?api=1&query=Église+Saint-Sulpice+Paris' },
       { time: '12:00', name: '🙏 奇蹟獎章小堂', meta: '🚶 步行（約 5 分鐘）', note: '附近有 CityPharma 可順道採購', maps: 'https://www.google.com/maps/search/?api=1&query=Chapelle+Notre-Dame+de+la+Médaille+Miraculeuse+Paris' },
-      { time: '13:00', name: '🍽 香榭麗舍 侯布雄', meta: '🚇 地鐵（約 15 分鐘）', status: 'pending', note: '⚠️ 務必於本週五去電再次確認訂位', maps: 'https://www.google.com/maps/search/?api=1&query=L+Atelier+de+Joel+Robuchon+Champs+Elysees+Paris' },
-      { time: '15:30', name: '🛍 香榭麗舍大道精品購物', meta: '🚶 步行', note: '若天氣不佳可回羅浮宮補遊', maps: 'https://www.google.com/maps/search/?api=1&query=Avenue+des+Champs-Élysées+Paris' },
+      { time: '13:30', name: '🛍 香榭麗舍大道精品購物', meta: '🚇 地鐵（約 15 分鐘）', note: '若天氣不佳可回羅浮宮補遊｜補充備考：侯布雄 Robuchon 曾規劃於此日午餐，⚠️ 若重新安排請提前確認訂位', maps: 'https://www.google.com/maps/search/?api=1&query=Avenue+des+Champs-Élysées+Paris' },
+      { time: '15:30', name: '🚣 布洛涅森林划船', meta: '🚕 Bolt（約 10 分鐘）', note: '法式庭園湖畔划船，預計停留 1.5 小時', maps: 'https://www.google.com/maps/search/?api=1&query=Lac+Inférieur+Bois+de+Boulogne+Paris' },
     ]
   },
   {
     date: '6/22', day: '一', city: 'paris',
     theme: '經典巴黎 · 60 歲慶生大壽 🎂',
+    route: 'https://www.google.com/maps/dir/6+Pl.+de+la+Madeleine,+75008+Paris,+France/Citypharma,+26+Rue+du+Four,+75006+Paris,+France/Sainte-Chapelle,+10+Bd+du+Palais,+75001+Paris,+France/Notre-Dame+Cathedral+of+Paris,+6+Parvis+Notre-Dame+-+Pl.+Jean-Paul+II,+75004+Paris,+France/Louvre+Museum,+75001+Paris,+France/Jules+Verne,+Avenue+Gustave+Eiffel+2ème,+Eiffel+Tower,+Av.+Anatole+France,+75007+Paris,+France/@48.8607576,2.3016513,14z/data=!3m2!4b1!5s0x47f112d46c2f6eef:0xfb8a933f53aec2c6!4m38!4m37!1m5!1m1!1s0x47e66e32e7527259:0x8f0ff72992c6e04d!2m2!1d2.3245213!2d48.8689071!1m5!1m1!1s0x47e671d9e09bfbf7:0xdf37b8adc3b8633c!2m2!1d2.3333529!2d48.8527634!1m5!1m1!1s0x47e66e1fd8767d47:0x33f441f9dc242768!2m2!1d2.3449609!2d48.855375!1m5!1m1!1s0x47e671e19ff53a01:0x36401da7abfa068d!2m2!1d2.3499021!2d48.8529682!1m5!1m1!1s0x47e671d877937b0f:0xb975fcfa192f84d4!2m2!1d2.337644!2d48.8606111!1m5!1m1!1s0x47e66fe1f2e9fe97:0xb320f5fd1146968f!2m2!1d2.2944833!2d48.8583698!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
-      { time: '09:30', name: '💎 聖禮拜堂 Sainte-Chapelle', meta: '🚇 地鐵（約 15 分鐘）', maps: 'https://www.google.com/maps/search/?api=1&query=Sainte-Chapelle+Paris' },
-      { time: '11:00', name: '⛪ 聖母院 Notre-Dame 登頂', meta: '🚶 步行（約 5 分鐘）', maps: 'https://www.google.com/maps/search/?api=1&query=Cathédrale+Notre-Dame+de+Paris' },
-      { time: '13:00', name: '🏛 奧塞美術館', meta: '🚇 地鐵 / 步行', note: '羅浮宮備用票 13:00 可用', maps: 'https://www.google.com/maps/search/?api=1&query=Musée+d+Orsay+Paris' },
+      { time: '10:30', name: '🏛 奧塞美術館', meta: '🚇 地鐵（約 15 分鐘）', note: '羅浮宮備用票可改至此日使用', maps: 'https://www.google.com/maps/search/?api=1&query=Musée+d+Orsay+Paris' },
+      { time: '12:00', name: '💎 聖禮拜堂 Sainte-Chapelle', meta: '🚇 地鐵 + 🚶 步行（約 15 分鐘）', maps: 'https://www.google.com/maps/search/?api=1&query=Sainte-Chapelle+Paris' },
+      { time: '13:00', name: '⛪ 聖母院 Notre-Dame 登頂', meta: '🚶 步行（約 5 分鐘）', maps: 'https://www.google.com/maps/search/?api=1&query=Cathédrale+Notre-Dame+de+Paris' },
       { time: '15:30', name: '🛍 瑪黑區 & CityPharma 採買', meta: '🚶 步行', maps: 'https://www.google.com/maps/search/?api=1&query=Le+Marais+Paris' },
       { time: '21:00', name: '🗼 艾菲爾鐵塔慶生晚宴 🎂', meta: '🚕 Bolt（約 20 分鐘）', status: 'confirmed', note: '今日重頭戲！著裝：Smart Casual 正式休閒裝', maps: 'https://www.google.com/maps/search/?api=1&query=Tour+Eiffel+Paris' },
     ]
@@ -646,6 +673,7 @@ const DAYS = [
   {
     date: '6/24', day: '三', city: 'paris',
     theme: '運河告別 · Eurostar · 阿姆斯特丹',
+    route: 'https://www.google.com/maps/dir/Canal+Saint-Martin,+Paris,+France/Gare+du+Nord,+18+Rue+de+Dunkerque,+75010+Paris,+France/@48.8749223,2.3509804,15z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x47e66e75a525055f:0xcc0b30bb4ea9216f!2m2!1d2.3671263!2d48.8689404!1m5!1m1!1s0x47e66e6bfc58a37f:0x4fb63768d2dd790c!2m2!1d2.3561432!2d48.8809706!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '09:00', name: '🧳 辦理退房 & 行李分工', meta: '🚶 步行', note: '佑和容辦理退房；張爸和阿姨先往百貨', maps: 'https://maps.app.goo.gl/AQmHu7nW3223brqN8' },
       { time: '11:30', name: '🌿 聖馬丁運河野餐', meta: '🚇 地鐵（約 20 分鐘）', maps: 'https://www.google.com/maps/search/?api=1&query=Canal+Saint-Martin+Paris' },
@@ -658,28 +686,33 @@ const DAYS = [
   {
     date: '6/25', day: '四', city: 'amsterdam',
     theme: '女王百貨折扣日 · 自駕電動船',
+    route: 'https://www.google.com/maps/dir/Hotel2Stay,+Tempelhofstraat+2,+1043+EC+Amsterdam,+Netherlands/De+Bijenkorf,+Dam+1,+1012+JS+Amsterdam,+Netherlands/Rijksmuseum,+Museumstraat+1,+1071+XX+Amsterdam,+Netherlands/@52.3734867,4.8476346,14z/data=!3m2!4b1!5s0x47c609c7698f4051:0x78391a80d1d7a07c!4m20!4m19!1m5!1m1!1s0x47c5e25ec3865391:0xc1259c2632e5b216!2m2!1d4.8395014!2d52.3869526!1m5!1m1!1s0x47c609c73fa93519:0x92802abbc9c6023e!2m2!1d4.8952706!2d52.3737531!1m5!1m1!1s0x47c609eec1bb16e5:0xd54373ae6a408585!2m2!1d4.8852188!2d52.3599976!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '10:00', name: '🛍 Bijenkorf 女王百貨', meta: '🚶 步行 / 🚊 輕軌', note: '一年一度夏季折扣首日！', maps: 'https://www.google.com/maps/search/?api=1&query=De+Bijenkorf+Amsterdam' },
       { time: '10:00', name: '🏘 九小街 The 9 Streets', meta: '🚶 步行', note: '荷蘭本土設計選物與餐瓷', maps: 'https://www.google.com/maps/search/?api=1&query=De+9+Straatjes+Amsterdam' },
       { time: '14:30', name: '🖼 荷蘭國家博物館', meta: '🚶 步行（約 15 分鐘）', maps: 'https://www.google.com/maps/search/?api=1&query=Rijksmuseum+Amsterdam' },
       { time: '17:00', name: '⛵ 全家自駕電動船', meta: '⛵ 博物館附近碼頭出發', note: '阿姆斯特丹最獨特的家庭體驗', maps: 'https://www.google.com/maps/search/?api=1&query=Rijksmuseum+Amsterdam' },
+      { time: '19:00', name: '📋 登記 6/26 遊船時段', meta: '🚶 步行前往 Damrak 26', note: '地址：Damrak 26, 1012 LJ Amsterdam｜現場登記明日遊船時間', maps: 'https://www.google.com/maps/search/?api=1&query=Damrak+26+Amsterdam' },
     ]
   },
   {
     date: '6/26', day: '五', city: 'amsterdam',
     theme: '梵谷藝術 · 重機文化',
+    route: 'https://www.google.com/maps/dir/Hotel2Stay,+Tempelhofstraat+2,+1043+EC+Amsterdam,+Netherlands/Albert+Cuyp+Markt,+Albert+Cuypstraat+101,+1072+VV+Amsterdam,+Netherlands/Van+Gogh+Museum,+Museumplein+6,+1071+DJ+Amsterdam,+Netherlands/Rusty+Gold+MotorShop,+De+Clercqstraat+48,+1052+NH+Amsterdam,+Netherlands/Ons\'+Lieve+Heer+op+Solder,+Oudezijds+Voorburgwal+38-40,+1012+GD+Amsterdam,+Netherlands/@52.3707009,4.8488508,14z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0x47c5e25ec3865391:0xc1259c2632e5b216!2m2!1d4.8395014!2d52.3869526!1m5!1m1!1s0x47c609f2ba59aa65:0xd19ced0a4fc90b98!2m2!1d4.8915504!2d52.3553059!1m5!1m1!1s0x47c609ef96d35a5f:0xc22828aef97cc51a!2m2!1d4.8812053!2d52.3580757!1m5!1m1!1s0x47c5e20f688679fd:0xceaf17652171f597!2m2!1d4.8700056!2d52.371025!1m5!1m1!1s0x47c609b9ad40ed53:0x7022e56aa94547fc!2m2!1d4.8994606!2d52.3751327!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '10:00', name: '🧺 Albert Cuyp 市集', meta: '🚊 輕軌', maps: 'https://www.google.com/maps/search/?api=1&query=Albert+Cuyp+Market+Amsterdam' },
       { time: '13:45', name: '🎨 梵谷博物館 Van Gogh Museum', meta: '🚊 輕軌 / 步行', status: 'pending', note: '⚠️ 尚未預約！停留約 2.5 小時，請即刻訂票', maps: 'https://www.google.com/maps/search/?api=1&query=Van+Gogh+Museum+Amsterdam' },
       { time: '16:30', name: '☕ Rusty Gold MotorShop', meta: '🚊 輕軌（約 15 分鐘）', note: '重機文化咖啡店，爸爸必訪', maps: 'https://www.google.com/maps/search/?api=1&query=Rusty+Gold+MotorShop+Amsterdam' },
-      { time: '18:00', name: '🧥 PME Legend 旗艦店', meta: '🚶 步行', maps: 'https://www.google.com/maps/search/?api=1&query=PME+Legend+Amsterdam' },
-      { time: '19:30', name: '⛪ 閣樓上的秘密教堂', meta: '🚶 步行（約 15 分鐘）', note: '隱藏歷史，限時參觀需查詢開放時間', maps: 'https://www.google.com/maps/search/?api=1&query=Museum+Ons+Lieve+Heer+op+Solder+Amsterdam' },
-      { time: '22:00', name: '🌙 運河夜遊', meta: '🚢 碼頭出發' },
+      { time: '17:30', name: '🏘 Jordan 約旦區漫步', meta: '🚶 步行（約 10 分鐘）', note: '阿姆最文青的街區，獨立小店與咖啡廳林立', maps: 'https://www.google.com/maps/search/?api=1&query=Jordaan+Amsterdam' },
+      { time: '18:30', name: '🦪 海鮮晚餐', meta: '🚶 步行', note: '推薦區域：Jordaan 或 Leidseplein 附近海鮮餐廳', maps: 'https://www.google.com/maps/search/?api=1&query=seafood+restaurant+Jordaan+Amsterdam' },
+      { time: '20:30', name: '⛪ 閣樓上的秘密教堂', meta: '🚶 步行（約 15 分鐘）', note: '隱藏歷史，限時參觀需提前查詢開放時間', maps: 'https://www.google.com/maps/search/?api=1&query=Museum+Ons+Lieve+Heer+op+Solder+Amsterdam' },
+      { time: '22:00', name: '🌙 運河夜遊', meta: '🚢 Damrak 碼頭出發', maps: 'https://www.google.com/maps/search/?api=1&query=Damrak+26+Amsterdam' },
     ]
   },
   {
     date: '6/27', day: '六', city: 'amsterdam',
     theme: '最後挖寶 · 整理退稅 · 返程台北',
+    route: 'https://www.google.com/maps/dir/Hotel2Stay,+Tempelhofstraat+2,+1043+EC+Amsterdam,+Netherlands/Omelegg+Jordaan,+Westerstraat+30,+1015+MK+Amsterdam,+Netherlands/Winkel+43,+Noordermarkt+43,+1015+NA+Amsterdam,+Netherlands/Noordermarkt,+Amsterdam,+Netherlands/Spiegelkwartier,+1017+JP+Amsterdam,+Netherlands/The+9+Streets,+Wolvenstraat+9,+1016+EM+Amsterdam,+Netherlands/Kramer+Kunst+%26+Antiek,+Prinsengracht+807,+1017+KA+Amsterdam,+Netherlands/@52.3744352,4.8443228,14z/data=!3m2!4b1!5s0x47c609ebc2a71cc3:0x3d28cd800e642eab!4m44!4m43!1m5!1m1!1s0x47c5e25ec3865391:0xc1259c2632e5b216!2m2!1d4.8395014!2d52.3869526!1m5!1m1!1s0x47c6093362794763:0x751c14fff45c5531!2m2!1d4.8853369!2d52.3789339!1m5!1m1!1s0x47c609cfa26c4001:0xe3db9b09718b7bc2!2m2!1d4.8862669!2d52.379091!1m5!1m1!1s0x47c609cf0832d9d9:0x400445bf9528634b!2m2!1d4.886509!2d52.37989!1m5!1m1!1s0x47c609ebfec11059:0xa202cad6b325d68c!2m2!1d4.8873777!2d52.3618946!1m5!1m1!1s0x47c609c322fdb30f:0x286568ece0f9b732!2m2!1d4.8860546!2d52.3702625!1m5!1m1!1s0x47c609ebe9b7ae71:0x5f425b1746763bc2!2m2!1d4.8881667!2d52.363!3e2?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D',
     events: [
       { time: '07:00', name: '🍳 Omelegg 早餐', meta: '🚶 步行', maps: 'https://www.google.com/maps/search/?api=1&query=Omelegg+Amsterdam' },
       { time: '08:00', name: '🥐 Winkel 43 早市', meta: '🚶 步行', maps: 'https://www.google.com/maps/search/?api=1&query=Winkel+43+Amsterdam' },
@@ -722,9 +755,17 @@ function renderDayContent() {
   const badgeClass = isAms ? 'amsterdam' : 'paris';
   const badgeLabel = isAms ? '🇳🇱 阿姆斯特丹' : '🇫🇷 巴黎';
 
+  const routeBtn = d.route
+    ? `<a href="${d.route}" target="_blank" class="route-btn ${isAms ? 'amsterdam' : ''}">
+        <span class="route-icon">🗺</span>
+        <span class="route-label">今日完整路線導航</span>
+        <span class="route-arrow">↗</span>
+      </a>`
+    : '';
+
   let html = `<div class="timeline">
     <div class="tl-city-badge ${badgeClass}">${badgeLabel}</div>`;
-  html += `</div><div class="day-theme">${d.theme}</div><div class="timeline">`;
+  html += `</div><div class="day-theme">${d.theme}</div>${routeBtn}<div class="timeline">`;
 
   d.events.forEach((ev, idx) => {
     const isLast = idx === d.events.length - 1;
